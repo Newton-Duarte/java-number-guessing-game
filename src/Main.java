@@ -6,9 +6,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        int numberToGuess = random.nextInt(1, 101);
+        int min = 1;
+        int max = 100;
+        int numberToGuess = random.nextInt(min, max + 1);
+        int attempts = 1;
 
-        System.out.print("Guess a number between 1-100: ");
+        System.out.printf("Guess a number between %d-%d: ", min, max);
         int userGuess = scanner.nextInt();
 
         while (userGuess != numberToGuess) {
@@ -20,9 +23,11 @@ public class Main {
 
             System.out.print("Guess a number between 1-100: ");
             userGuess = scanner.nextInt();
+            attempts++;
         }
 
-        System.out.printf("The number was %d. YOU WIN! 🏆", numberToGuess);
+        System.out.printf("\nThe number was %d. YOU WIN! 🏆", numberToGuess);
+        System.out.printf("\n%d attempts", attempts);
 
         scanner.close();
     }
